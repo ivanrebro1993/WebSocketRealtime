@@ -1,0 +1,13 @@
+{
+  "api": {
+    "host": "localhost",
+    "port": 8000,
+    "interval": 1000,
+    "min": 0,
+    "max": 100
+  },
+  "client": {
+    "maxDataLenght": 10,
+    "interval": 5000
+  }
+}

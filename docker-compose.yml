@@ -1,0 +1,12 @@
+version: "3.1"
+services:
+  realtime-server-app:
+    container_name: realtime-server
+    image: node:9.4.0-alpine
+    working_dir: /usr/src/app
+    command: npm start
+    ports:
+      - 8000:8000 # websockets
+      - 8080:3000 # client
+    volumes:
+      - ./app:/usr/src/app
