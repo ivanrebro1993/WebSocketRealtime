@@ -35,7 +35,9 @@ class LineChart extends React.Component {
 
     render() {
         return (
-            <Line data={ this.getLineData(this.props.data, this.props.labels) } redraw />
+            <Line
+                data={ this.getLineData(this.props.data, this.props.labels) }
+                redraw />
         );
     }
 }

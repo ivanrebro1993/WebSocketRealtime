@@ -15,23 +15,23 @@ class App extends React.Component {
     }
 
     initState() {
-        this.state = {
+        this.index = 0;
+        this.metrics = {
             data: [],
-            labels: [],
-            index: 0
+            labels: []
         };
     }
 
     subscribeApi() {
         api.subscribe(
             metric => {
-                this.state.index++;
-                this.state.labels.push(this.state.index);
-                this.state.data.push(metric);
+                this.index++;
+                this.metrics.labels.push(this.index);
+                this.metrics.data.push(metric);
 
-                if (this.state.data.length > config.client.maxDataLenght) {
-                    this.state.labels.shift();
-                    this.state.data.shift();
+                if (this.metrics.data.length > config.client.maxDataLenght) {
+                    this.metrics.labels.shift();
+                    this.metrics.data.shift();
                 }
 
                 this.forceUpdate();
@@ -43,7 +43,7 @@ class App extends React.Component {
     render() {
         return (
             <div class='App'>
-                <LineChart data={this.state.data} labels={this.state.labels} />
+                <LineChart data={this.metrics.data} labels={this.metrics.labels} />
             </div>
         );
     }
